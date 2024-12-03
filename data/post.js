@@ -1,5 +1,5 @@
 "use strict"
-const Posts = [
+const posts = [
     { conteggio: 5 },
     {
         title: "Ciambellone",
@@ -33,4 +33,4 @@ const Posts = [
     }
 ]
 
-module.exports = Posts;
+module.exports = posts;
