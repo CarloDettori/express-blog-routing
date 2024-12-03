@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 const postsRouter = require('./routers/post');
-const Posts = require("./data/post")
+const posts = require("./data/post")
 
 app.use(express.static("public"));
 
@@ -13,10 +13,10 @@ app.get("/", (req, res) => {
 
 app.get("/bacheca", (req, res) => {
     let postTitles = ""
-    Posts.slice(1).forEach(element => {
+    posts.slice(1).forEach(element => {
         postTitles += (" " + element.title)
     });
-    let counter = Posts[0].conteggio
+    let counter = posts[0].conteggio
     let postArchive = {
         allPostsPro: postTitles,
         totalPostPro: counter,
