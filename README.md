@@ -1,81 +1,35 @@
 # EXPRESS-BLOG-INTRO
 
-Ciao Ragazzi,
+Ciao ragazzi,
 
-esercizio di oggi: *express-blog-intro*
-nome repo express-blog-intro
-
-
-### *Esercizio*
-
-Creiamo il nostro blog personale e giorno dopo giorno lo potremo arricchire con nuove funzionalità sulla base di quello che impareremo.
-
-- Creiamo il progetto base con una rotta / che ritorna un testo semplice con scritto ”Server del mio blog”
-
-- Creiamo un array dove inserire una lista di almeno 5 post, per ognuno indicare titolo, contenuto, immagine e tags (tags è un array di stringhe)
-
-- Creiamo poi una rotta /bacheca che restituisca un oggetto json con la lista dei post e il conteggio, partendo da un array.
-
-- Configuriamo gli asset statici sull’applicazione in modo che si possano visualizzare le immagini associate ad ogni post.
-
-- Testare su postman
+esercizio di oggi: *express-blog-routing*
+repo: express-blog-routing
 
 
-Bonus:
+### Esercizio
 
-filtrare i dati sulla base di parametri in query string
+Usando l'array dei post con le relative immagini, creare un file di routing (routers/posts.js) che conterrà le rotte necessarie per l'entità post.
 
+All'interno creare le rotte per le operazioni CRUD (Index, Show, Create, Update e Delete)
 
-Buon lavoro!
-//__________________________________________________________________________________________
-
-## Step
-```bash
-# create file server.js
-# npm init -y
-# configure package json with dev and start script
-
-# install express 
-npm install express
-
-```
-
-```javascript
-// import express in server js
-
-const express = require('express');
+Tutte le risposte saranno dei testi che confermeranno l’operazione che il server deve eseguire, secondo le convenzioni REST.
 
 
-// set port to listen on localhost
-const PORT = 3000;
+Ad esempio:
+
+Se viene chiamata /posts col verbo GET ci aspettiamo “Lista dei post”;
+
+Se viene chiamato /posts/1 col verbo DELETE ci aspettiamo “Cancellazione del post 1”
+
+e via dicendo…
+
+Registrare il router dentro app.js con il prefisso /posts.
 
 
-//creo una istanza del server
-const app = express();
+### Bonus
 
+- Provare a restituire la lista dei post dalla rotta index, in formato json
 
-//definisco path per asset statici
-app.use(express.static("public"));
+- Provare a restituire un singolo post dalla rotta show, sempre in formato json
 
-//require di eventuali altri file
-const pets = require("./data/pets.js");
-console.log(pets);
-
-
-//rotte
-app.get("/", (req, res) => {
-  res.send("Ciao");
-});
-// app.get("/api/pets", (req, res) => {
-//   res.json(pets);
-// });
-app.all('*',(req,res)=>{
-  res.status(404).send('<h1>Not Found !</h1>');
-})
-
-//mmetto il server in ascolto su localhost alla porta 3000
-app.listen(PORT,  () => {
-    console.log(`Server is running on http://localhost:${PORT}}`);
-});
-
-```
+Buon Lavoro 
