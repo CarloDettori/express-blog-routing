@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 
 //read:  visualizzazione 1 elemento (show)
 router.get("/:title", (req, res) => {
-    res.send("")
+    res.send("visualizzazione 1 post")
 });
 
 //create:  creazione 1 elemento (store)
